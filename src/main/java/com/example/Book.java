@@ -1,16 +1,31 @@
 package com.example;
 
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "T_Book")
 public class Book {
+
+	@Id
+	@GeneratedValue
 	private Long id;
+	@Column(length = 200)
 	private String title;
+
+	@Column(length = 50)
 	private String isbn;
+
+	@Column(length = 1000)
 	private String description;
 	private BigDecimal price;
+	@Column(name = "publication_date")
 	private LocalDate publicationDate;
+	@Column(name = "no_of_pages")
 	private Integer nbOfPages;
+	@Column(name = "image_url")
 	private String imageUrl;
 
 	public Long getId( ) {
